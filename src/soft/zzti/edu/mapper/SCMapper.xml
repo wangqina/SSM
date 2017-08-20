@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="soft.zzti.edu.mapper.SCMapper">
+
+
+
+<resultMap type="soft.zzti.edu.po.SC" id="selectSCResult">
+<id  column="cno"  property="cno"/>
+<id  column="sno"  property="sno"/>
+<result column="grade"  property="grade" />
+
+<association property="student"  javaType="soft.zzti.edu.po.Student">
+<id  column="sno"  property="sno"/>
+<result column="sname"  property="sname" />
+</association>
+
+<association property="course"  javaType="soft.zzti.edu.po.Course">
+<id  column="cno"  property="cno"/>
+<result  column="course"  property="course"/>
+</association>
+
+</resultMap>
+ 
+
+<select id="selectBysno"   parameterType="soft.zzti.edu.po.SC"  resultType="soft.zzti.edu.po.SC">
+  SELECT * FROM sc  where  sno=#{sno}   
+</select>
+
+<select id="selectcourse"  resultMap="selectSCResult">
+select s.grade,t.sname,c.course   from sc  s ,student t  ,course c  where s.sno=t.sno and c.cno=s.cno  ;
+
+</select>
+
+
+</mapper>

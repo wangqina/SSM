@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+     <!-- 指定由spring负责action对象的创建 -->
+     <constant name="struts.objectFactory" value="spring"/>
+      <!-- 老师的配置信息 -->
+   <package   name="teacherStruct" extends="struts-default"  namespace="/teacher">      
+    <action name="getTeacherOfStudents" class="soft.zzti.edu.action.TeacherAction"  method="getTeacherOfStudents">
+   <result name="success" >/teacher/teacherOfStudentsList.jsp</result>
+   </action>
+  
+   </package>
+   
+    <!-- 学生的配置信息 -->
+   
+   <package name="studentStruct"  extends="struts-default"  namespace="/studnet">   
+   <action name="selectByid" class="soft.zzti.edu.action.StudentAction"  method="selectByid">
+   <result name="success" type="redirectAction">/selectcourse</result>
+   <result name="error" >/index.jsp</result>
+   </action>   
+   
+   </package>
+   
+   <!-- 成绩表的配置信息 -->
+   <package name="scStruct"  extends="struts-default"  namespace="/sc">   
+   
+   <action name="selectcourse" class="soft.zzti.edu.action.SCAction"  method="selectcourse">
+   <result name="success" >/student/scList.jsp</result>
+   </action>
+   </package>
+   
+   
+   <package name="courseStruct"  extends="struts-default"  namespace="/course">
+   
+   <!-- 课程信息的处理 -->
+   <action name="selectList" class ="soft.zzti.edu.action.CourseAction"   method="selectList">
+   <result name="success">/course/courseList.jsp</result> 
+   </action>
+   
+   <action name="findByCno" class="soft.zzti.edu.action.CourseAction"     method="findByCno">
+   <result name="success">/course/courseEdit.jsp</result>   
+   </action>
+   
+   <!-- 进行重定向 -->
+   <action name="insertCourse" class ="soft.zzti.edu.action.CourseAction"  method="insertCourse">
+   <result name="success"  type="redirectAction">/selectList</result>
+   </action>
+   
+   <action  name="delectCource" class="soft.zzti.edu.action.CourseAction"  method="delectCource">
+   <result  name="success" type="redirectAction">/selectList</result>
+   </action>
+   
+   <action  name="editCourse"  class="soft.zzti.edu.action.CourseAction"   method="editCourse">   
+   <result  name="success"  type="redirectAction">/selectList</result>   
+   </action>
+   
+   </package>
+	
+</struts>

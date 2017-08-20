@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+     <!-- 指定由spring负责action对象的创建 -->
+     <constant name="struts.objectFactory" value="spring"/>
+  <!-- 管理员的配置信息 -->
+   <action name="getActor" class ="soft.zzti.user.action.ActorAction" method="getActor">
+   <result name="success" type="redirectAction">/selectList</result> 
+   
+   </action>
+	
+</struts>

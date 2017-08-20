@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="soft.zzti.edu.mapper.CourseMapper">
+
+<select id="selectList"    resultType="soft.zzti.edu.po.Course">
+  SELECT * FROM course    
+</select>
+
+<select id="findByCno"   parameterType="string"  resultType="soft.zzti.edu.po.Course">
+  SELECT * FROM course where  cno=#{cno}
+  
+</select>
+
+<insert id="insertCourse"  parameterType="soft.zzti.edu.po.Course">
+insert into course(cno,course) value(#{cno},#{course})
+</insert>
+
+<delete id="delectCource" parameterType="string" >
+delete  from course where cno=#{cno}
+</delete>
+
+<update id="editCourse" parameterType="soft.zzti.edu.po.Course">
+update course set 
+<if  test="cno!=null">
+course=#{course}
+</if>
+</update>
+
+</mapper>

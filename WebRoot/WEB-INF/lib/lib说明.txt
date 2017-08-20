@@ -1,0 +1,2 @@
+ZHConverter.jar 繁体转简体
+commons-httpclient-3.0-rc2.jar HTTP短信平台

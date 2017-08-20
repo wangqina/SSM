@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 	
+	<!-- 加载 映射文件 -->
+	<mappers>
+		<package name="soft.zzti.*.mapper"/>
+		
+	</mappers>
+	
+	<!-- 使用扫描的形式架子啊mapper
+	
+	 -->
+	
+</configuration>
